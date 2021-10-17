@@ -13,3 +13,14 @@ $ cargo test
 $ cargo build-bpf
 $ cargo test-bpf
 ```
+
+### Design
+#### invest() 
+    - user A sends funds in terms of USDC.
+    - user A also has address of token A.
+    - program sends USDC to admin/fund's USDC account.
+    - program mints tokens equal to value of USDC recieved. (TODO: for now it is assumed that tokens are pre-minted.)
+    - program transfers tokens to user A's token account.
+    - The fund has a primary solana account which is managed by owner of the fund.
+    - The fund also has a USDC spl-token account and fund-token spl-token account.
+    - For both above spl-token account fund's primary account is authority account.
