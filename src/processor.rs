@@ -137,6 +137,26 @@ impl Processor {
             ],
         )?;
 
+        //TODO: mint account may needed to be passed.
+        /*
+        let mint_fund_token_ix = spl_token::instruction::mint_to(
+            /*token_program_id*/ token_program.key, 
+            /*mint_pubkey*/ funds_token_account.key, 
+            /*account_pubkey*/ investors_token_account.key, 
+            /*owner_pubkey*/ funds_primary_account.key, 
+            /*signer_pubkeys*/ &[funds_primary_account.key],
+            /*amount*/amount)?;
+        msg!("Calling the token program to mint new fund tokens from fund to investor");
+        invoke(
+            &mint_fund_token_ix,
+            &[
+                funds_token_account.clone(),
+                investors_token_account.clone(),
+                funds_primary_account.clone(),
+            ],
+        )?;
+        */
+
         Ok(())
     }
 }
